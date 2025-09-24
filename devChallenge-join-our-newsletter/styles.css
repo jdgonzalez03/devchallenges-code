@@ -1,0 +1,155 @@
+:root{
+  --background-color-button: #3662E3;
+  --background-color-form: #FFFFFF;
+  --background-color-body: #F9FAFB;
+  --text-description-color: #6C727F;
+  --text-title-color: #000000;
+  --background-color-input: #E5E7EB;
+}
+
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppin', sans-serif;
+}
+
+html, body{
+  background-color: var(--background-color-body);
+  min-height: 100vh;
+  width: 100vw;
+}
+
+/* layout */
+main, .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  width: 680px;
+  margin: 0 auto;
+  margin-top: 70px;
+  text-align: center;
+  gap: 24px;
+}
+
+.title{
+  margin-bottom: 28px;
+}
+
+.subtitle{
+  margin-bottom: 54px;
+  line-height: 1.4;
+}
+
+form{
+  width: 540px;
+  padding: 24px;
+  background-color: var(--background-color-form);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 16px;
+  box-shadow: 0px 10px 35px -22px var(--text-description-color);
+}
+
+input, button{
+  border: none;
+  text-align: center;
+  padding: 22px;
+  border-radius: 16px;
+}
+
+button:hover{
+  cursor: pointer;
+}
+
+/* Typographies */
+.title{
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--text-title-color);
+}
+
+.subtitle{
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-description-color);
+}
+
+input{
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: var(--background-color-body);
+  color: var(--text-description-color);
+  border: 1px solid var(--background-color-input);
+}
+
+button{
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--background-color-button);
+  color: var(--background-color-form);
+}
+
+.helper-text{
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--text-description-color);
+}
+
+@media (max-width: 640px) {
+  html, body {
+    padding: 0 16px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 280px;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  form {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+
+  input, button {
+    padding: 18px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+
+  .helper-text {
+    font-size: 0.75rem;
+    padding: 0 16px;
+  }
+
+  header img {
+    width: 80px; /* Reduce logo size for smaller screens */
+  }
+
+  form p {
+    padding: 0 16px;
+  }
+}
