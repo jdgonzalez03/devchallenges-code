@@ -1,0 +1,128 @@
+:root{
+  --font-family: 'Outfit', Sans-serif;
+
+  --font-size-heading: 2.5rem;
+  --font-weight-heading: 600;
+
+  --font-size-small-heading:  1.25rem;
+  --font-size-body-text: 1rem;
+  --font-weight-body-text: 400;
+
+  --background-color-body: #121826;
+  --background-color-card: #212936;
+  --color-heading-text: #E5E7EB;
+  --colot-body-text: #9DA3AE;
+
+  --background-color-first-icon: #FCEED8;
+  --background-color-second-icon: #DEE9FC;
+  --background-color-third-icon: #FBE5E6;
+}
+
+*, *::after, *::before{
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+body{
+  padding: 3rem 0;
+  background-color: var(--background-color-body);
+  background-image: url('/assets/Background_image.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+header{
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.heading{
+  color: var(--color-heading-text);
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading);
+  margin-bottom: 10px;
+}
+
+.body-text{
+  color: var(--colot-body-text);
+  font-size: var(--font-size-body-text);
+  font-weight: var(--font-weight-body-text);
+}
+
+.small-heading{
+  color: var(--color-heading-text);
+  font-size: var(--font-size-small-heading);
+  font-weight: var(--font-weight-heading);
+}
+
+.list{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-content: center;
+  justify-items: center;
+  gap: 50px;
+}
+
+.img-container, .img-container img{
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.card {
+  background-color: var(--background-color-card);
+  max-width: 315px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: grid;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.first {
+  background-color: var(--background-color-first-icon);
+}
+
+.second {
+  background-color: var(--background-color-second-icon);
+}
+
+.third {
+  background-color: var(--background-color-third-icon);
+}
+
+@media (max-width:1024px) {
+  .list{
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}
+
+@media (max-width:740px) {
+  .list{
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+}
