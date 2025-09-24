@@ -1,0 +1,145 @@
+:root {
+  --font-size-heading: 2.25rem;
+  --font-weight-heading: 600;
+
+  --font-size-small-heading: 1.25rem;
+  --font-weight-small-heading: 600;
+
+  --font-size-small-text: 0.875rem;
+  --font-weight-small-text: 500;
+
+  --color-heading: #000000;
+  --color-small-text: #6C727F;
+  --background-color: #F8FAFC;
+  --background-color-separator: #D9D9D9;
+
+  --font-family: 'Poppins', Sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--color-heading);
+  font-family: var(--font-family);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  max-width: 600px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 750px;
+  padding: 0 1rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-separator {
+  color: var(--background-color-separator);
+}
+
+.img-container,
+img {
+  width: 160px;
+  border-radius: 16px;
+}
+
+.img-container {
+  margin-right: 70px;
+}
+
+.heading {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-heading);
+  margin-bottom: 0.5rem;
+}
+
+.small-heading-card {
+  font-size: var(--font-size-small-heading);
+  font-weight: var(--font-weight-small-heading);
+  margin: 0px;
+}
+
+.small-text-card {
+  font-size: var(--font-size-small-text);
+  font-weight: var(--font-weight-small-text);
+  color: var(--color-small-text);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .list {
+    max-width: 700px;
+  }
+  
+  .img-container {
+    width: 160px;
+  }
+  
+  .heading {
+    font-size: 2rem;
+  }
+  
+  .small-heading-card {
+    font-size: 1.15rem;
+  }
+  
+  .small-text-card {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .list {
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+  
+  .card{
+    padding: 0 24px;
+  }
+    
+  .img-container,
+  img {
+    max-width: 160px;
+    min-width: 120px;
+    border-radius: 12px;
+    
+  }
+
+  .heading {
+    font-size: 1.75rem; 
+  }
+  
+  .small-heading-card {
+    font-size: 1rem;
+  }
+  
+  .small-text-card {
+    font-size: 0.8rem;
+  }
+}
