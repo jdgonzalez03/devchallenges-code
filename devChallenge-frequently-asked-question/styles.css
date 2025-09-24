@@ -1,0 +1,74 @@
+*, *::after, *::before{
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  color: #030616;
+
+}
+
+/* General styles */
+p {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+h2{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+a{
+  color: #4E80EE;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+section:first-child{
+  border-bottom: 1px solid #D2D5DA;
+}
+
+/* Layout and spacing */
+
+header{
+  margin: 60px auto;
+  text-align: center;
+  background-color: #FFFFFF;
+
+  & h1{
+    margin-bottom: 20px;
+  }
+}
+
+main{
+  background-color: #F8FAFC;
+  padding: 60px 300px;
+}
+
+section{
+  display: flex;
+  flex-direction: column;
+}
+
+
+ol li, ul li{
+  margin-top: 10px;
+  line-height: 1.9rem;
+  
+}
+
+/* Media queries */
+@media ( min-width: 640px) and  (max-width: 1024px) {
+  main{
+    padding: 60px 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  main{
+    padding: 0 10px;
+  }
+}
