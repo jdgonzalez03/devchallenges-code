@@ -1,0 +1,31 @@
+:root {
+  --font-family: 'DM Sans', sans-serif;
+
+  --font-size-heading: 2rem;
+  --font-size-body: 1rem;
+  --font-size-label: 0.875rem;
+  --font-size-small-text: 0.625rem;
+  --font-size-price: 0.75rem;
+
+  --color-text-sold-out: #ed735d;
+  --color-text-label-popular: #f6c768;
+  --color-text-content: #fef7ee;
+  --color-text-votes: #6f757c;
+
+  --background-color-body: #111315;
+  --background-color-list: #1b1d1f;
+  --background-color-price-label: #bee3cc;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
