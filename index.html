@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Matrix Landing</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: #0F0;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      opacity: 0;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #8f8;
+      margin-top: 0.5rem;
+      min-height: 1.5rem;
+      border-right: 2px solid #0F0;
+      white-space: nowrap;
+      overflow: hidden;
+      width: fit-content;
+    }
+    .projects {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      width: 80%;
+      max-width: 800px;
+    }
+    .card {
+      background: rgba(0,0,0,0.7);
+      border: 1px solid #0F0;
+      padding: 1rem;
+      border-radius: 6px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(0,50,0,0.9);
+    }
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+  <div class="content">
+    <h1 id="title">Mis Proyectos</h1>
+    <p id="subtitle"></p>
+    <div class="projects">
+      <div class="card">Proyecto 1</div>
+      <div class="card">Proyecto 2</div>
+      <div class="card">Proyecto 3</div>
+    </div>
+  </div>
+
+  <!-- Anime.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    // ---------- EFECTO MATRIX ----------
+    const canvas = document.getElementById("matrix");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    // Caracteres que "llueven"
+    const letters = "アァイィウヴエェオカガキギクグケゲコゴシジスセゼソゾタダチッヂツヅテデトドナニヌネノハバパヒビピフヘベペホマミムメモヤユヨラリルレロワヰヱヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const matrix = letters.split("");
+
+    let fontSize = 14;
+    let columns = canvas.width / fontSize;
+    let drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      // Fondo negro con opacidad baja para efecto de estela
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0F0"; // verde matrix
+      ctx.font = fontSize + "px monospace";
+
+      // Dibuja las letras
+      for (let i = 0; i < drops.length; i++) {
+        let text = matrix[Math.floor(Math.random() * matrix.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reinicia la "gota" con probabilidad para dar efecto random
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 33); // ~30 fps
+
+    window.addEventListener("resize", () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+      columns = canvas.width / fontSize;
+      drops = Array(Math.floor(columns)).fill(1);
+    });
+
+    // ---------- ANIMACIÓN TÍTULO ----------
+    anime('#title', {
+      translateY: [-50, 0],
+      opacity: [0, 1],
+      duration: 2000,
+      easing: 'easeOutExpo'
+    });
+
+    anime({
+      targets: '.card',
+      scale: [0.8, 1],
+      opacity: [0, 1],
+      delay: anime.stagger(400),
+      duration: 1500,
+      easing: 'easeOutElastic(1, .5)'
+    });
+
+    // ---------- EFECTO TYPING ----------
+    const subtitle = document.getElementById("subtitle");
+    const text = "Bienvenido a mi portafolio estilo hacker...";
+    let index = 0;
+
+    function typing() {
+      if (index < text.length) {
+        subtitle.textContent += text.charAt(index);
+        index++;
+        setTimeout(typing, 80); // velocidad del typing
+      } else {
+        subtitle.style.borderRight = "none"; // quitar cursor al final
+      }
+    }
+    setTimeout(typing, 1500); // empieza después de la animación del título
+  </script>
+</body>
+</html>
